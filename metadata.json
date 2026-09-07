@@ -1,0 +1,6 @@
+{
+  "name": "SonicLab 3D",
+  "description": "Laboratorio científico interactivo de acústica y cimática: simulación modal de placas de Chladni, ondas longitudinales en aire, síntesis de audio y optimización de código.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

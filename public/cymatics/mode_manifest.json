@@ -1,0 +1,1315 @@
+{
+  "banks": [
+    {
+      "activeGridPoints": 3136,
+      "analyticalValidation": {
+        "first_mode_relative_error": 0.021382652977267505,
+        "median_first_12_relative_error": 0.024761637526602334
+      },
+      "boundary": "simply_supported",
+      "boundaryOrdinal": 0,
+      "clamped_penalty": 0.0,
+      "file": "square_simply_supported.cym",
+      "firstEigenvalue": 36.323055267333984,
+      "geometry": "square",
+      "geometryOrdinal": 0,
+      "lastEigenvalue": 12218.8955078125,
+      "max_orthogonality_error": 8.444350303613638e-16,
+      "max_relative_residual": 1.6771685810439787e-10,
+      "modes": [
+        {
+          "eigenvalue": 36.323055267333984,
+          "index": 1,
+          "relativeResidual": 1.6771685810439787e-10
+        },
+        {
+          "eigenvalue": 226.743408203125,
+          "index": 2,
+          "relativeResidual": 3.6905978046039474e-11
+        },
+        {
+          "eigenvalue": 226.743408203125,
+          "index": 3,
+          "relativeResidual": 3.668823219062687e-11
+        },
+        {
+          "eigenvalue": 580.2867431640625,
+          "index": 4,
+          "relativeResidual": 1.48723160145919e-11
+        },
+        {
+          "eigenvalue": 904.771728515625,
+          "index": 5,
+          "relativeResidual": 1.1446793536134526e-11
+        },
+        {
+          "eigenvalue": 904.771728515625,
+          "index": 6,
+          "relativeResidual": 1.0969683883393605e-11
+        },
+        {
+          "eigenvalue": 1529.63623046875,
+          "index": 7,
+          "relativeResidual": 6.673075045430705e-12
+        },
+        {
+          "eigenvalue": 1529.63623046875,
+          "index": 8,
+          "relativeResidual": 6.1914031143062565e-12
+        },
+        {
+          "eigenvalue": 2605.64404296875,
+          "index": 9,
+          "relativeResidual": 3.5427425626865274e-12
+        },
+        {
+          "eigenvalue": 2605.64404296875,
+          "index": 10,
+          "relativeResidual": 4.000498825459769e-12
+        },
+        {
+          "eigenvalue": 2930.27197265625,
+          "index": 11,
+          "relativeResidual": 3.4300916161214093e-12
+        },
+        {
+          "eigenvalue": 3609.203857421875,
+          "index": 12,
+          "relativeResidual": 2.6548440199317234e-12
+        },
+        {
+          "eigenvalue": 3609.203857421875,
+          "index": 13,
+          "relativeResidual": 2.7294444465384954e-12
+        },
+        {
+          "eigenvalue": 5639.72021484375,
+          "index": 14,
+          "relativeResidual": 3.83861299056373e-12
+        },
+        {
+          "eigenvalue": 5639.72021484375,
+          "index": 15,
+          "relativeResidual": 2.035345306798059e-12
+        },
+        {
+          "eigenvalue": 6067.2548828125,
+          "index": 16,
+          "relativeResidual": 1.599430079509582e-12
+        },
+        {
+          "eigenvalue": 6067.2548828125,
+          "index": 17,
+          "relativeResidual": 2.3851422034395326e-12
+        },
+        {
+          "eigenvalue": 7555.73388671875,
+          "index": 18,
+          "relativeResidual": 2.9728671918981933e-12
+        },
+        {
+          "eigenvalue": 7555.73388671875,
+          "index": 19,
+          "relativeResidual": 1.4853706127021919e-12
+        },
+        {
+          "eigenvalue": 9228.322265625,
+          "index": 20,
+          "relativeResidual": 1.1833470774746985e-12
+        },
+        {
+          "eigenvalue": 10392.8125,
+          "index": 21,
+          "relativeResidual": 1.917989734362294e-12
+        },
+        {
+          "eigenvalue": 10392.8125,
+          "index": 22,
+          "relativeResidual": 1.199433650204727e-12
+        },
+        {
+          "eigenvalue": 12218.8955078125,
+          "index": 23,
+          "relativeResidual": 2.658112591956259e-12
+        },
+        {
+          "eigenvalue": 12218.8955078125,
+          "index": 24,
+          "relativeResidual": 8.558960852993823e-13
+        }
+      ],
+      "relative_residuals": [
+        1.6771685810439787e-10,
+        3.6905978046039474e-11,
+        3.668823219062687e-11,
+        1.48723160145919e-11,
+        1.1446793536134526e-11,
+        1.0969683883393605e-11,
+        6.673075045430705e-12,
+        6.1914031143062565e-12,
+        3.5427425626865274e-12,
+        4.000498825459769e-12,
+        3.4300916161214093e-12,
+        2.6548440199317234e-12,
+        2.7294444465384954e-12,
+        3.83861299056373e-12,
+        2.035345306798059e-12,
+        1.599430079509582e-12,
+        2.3851422034395326e-12,
+        2.9728671918981933e-12,
+        1.4853706127021919e-12,
+        1.1833470774746985e-12,
+        1.917989734362294e-12,
+        1.199433650204727e-12,
+        2.658112591956259e-12,
+        8.558960852993823e-13
+      ],
+      "sha256": "e66193feafcaf469d54c5eaa244fe9c411717ef840c9bbac253179881bcd20ca"
+    },
+    {
+      "activeGridPoints": 3136,
+      "boundary": "clamped",
+      "boundaryOrdinal": 1,
+      "clamped_penalty": 17722081.125000004,
+      "file": "square_clamped.cym",
+      "firstEigenvalue": 128.64170837402344,
+      "geometry": "square",
+      "geometryOrdinal": 0,
+      "lastEigenvalue": 17815.82421875,
+      "max_orthogonality_error": 6.599538623919265e-16,
+      "max_relative_residual": 5.1429903681334e-11,
+      "modes": [
+        {
+          "eigenvalue": 128.64170837402344,
+          "index": 1,
+          "relativeResidual": 5.1429903681334e-11
+        },
+        {
+          "eigenvalue": 534.46435546875,
+          "index": 2,
+          "relativeResidual": 1.5461319707316913e-11
+        },
+        {
+          "eigenvalue": 534.46435546875,
+          "index": 3,
+          "relativeResidual": 1.4055890652249825e-11
+        },
+        {
+          "eigenvalue": 1162.201171875,
+          "index": 4,
+          "relativeResidual": 6.357839548414832e-12
+        },
+        {
+          "eigenvalue": 1713.4134521484375,
+          "index": 5,
+          "relativeResidual": 4.5788471648799505e-12
+        },
+        {
+          "eigenvalue": 1729.5751953125,
+          "index": 6,
+          "relativeResidual": 7.2139698434394505e-12
+        },
+        {
+          "eigenvalue": 2697.16259765625,
+          "index": 7,
+          "relativeResidual": 3.504833953704312e-12
+        },
+        {
+          "eigenvalue": 2697.16259765625,
+          "index": 8,
+          "relativeResidual": 3.187963635954718e-12
+        },
+        {
+          "eigenvalue": 4369.5849609375,
+          "index": 9,
+          "relativeResidual": 2.4626270084588433e-12
+        },
+        {
+          "eigenvalue": 4369.5849609375,
+          "index": 10,
+          "relativeResidual": 2.083936240780728e-12
+        },
+        {
+          "eigenvalue": 4794.47314453125,
+          "index": 11,
+          "relativeResidual": 2.2503760254029954e-12
+        },
+        {
+          "eigenvalue": 5790.31982421875,
+          "index": 12,
+          "relativeResidual": 1.6680454521496218e-12
+        },
+        {
+          "eigenvalue": 5836.93994140625,
+          "index": 13,
+          "relativeResidual": 1.673186633172184e-12
+        },
+        {
+          "eigenvalue": 8676.6064453125,
+          "index": 14,
+          "relativeResidual": 1.8863055532065944e-12
+        },
+        {
+          "eigenvalue": 8676.6064453125,
+          "index": 15,
+          "relativeResidual": 1.242331831103391e-12
+        },
+        {
+          "eigenvalue": 9363.056640625,
+          "index": 16,
+          "relativeResidual": 9.978939085224581e-13
+        },
+        {
+          "eigenvalue": 9378.697265625,
+          "index": 17,
+          "relativeResidual": 1.6718707173786034e-12
+        },
+        {
+          "eigenvalue": 11400.4423828125,
+          "index": 18,
+          "relativeResidual": 1.1184038215065196e-12
+        },
+        {
+          "eigenvalue": 11400.4423828125,
+          "index": 19,
+          "relativeResidual": 9.914266450769809e-13
+        },
+        {
+          "eigenvalue": 13611.3896484375,
+          "index": 20,
+          "relativeResidual": 8.663734292492192e-13
+        },
+        {
+          "eigenvalue": 15183.8369140625,
+          "index": 21,
+          "relativeResidual": 6.534258294004236e-13
+        },
+        {
+          "eigenvalue": 15269.091796875,
+          "index": 22,
+          "relativeResidual": 1.2658496098809383e-12
+        },
+        {
+          "eigenvalue": 17815.82421875,
+          "index": 23,
+          "relativeResidual": 8.659861822773148e-13
+        },
+        {
+          "eigenvalue": 17815.82421875,
+          "index": 24,
+          "relativeResidual": 6.049022565348961e-13
+        }
+      ],
+      "relative_residuals": [
+        5.1429903681334e-11,
+        1.5461319707316913e-11,
+        1.4055890652249825e-11,
+        6.357839548414832e-12,
+        4.5788471648799505e-12,
+        7.2139698434394505e-12,
+        3.504833953704312e-12,
+        3.187963635954718e-12,
+        2.4626270084588433e-12,
+        2.083936240780728e-12,
+        2.2503760254029954e-12,
+        1.6680454521496218e-12,
+        1.673186633172184e-12,
+        1.8863055532065944e-12,
+        1.242331831103391e-12,
+        9.978939085224581e-13,
+        1.6718707173786034e-12,
+        1.1184038215065196e-12,
+        9.914266450769809e-13,
+        8.663734292492192e-13,
+        6.534258294004236e-13,
+        1.2658496098809383e-12,
+        8.659861822773148e-13,
+        6.049022565348961e-13
+      ],
+      "sha256": "bf72e93571e47fba2af9c480bedc95aa3edb17fb25d68af28d7c82d436ecbfbb"
+    },
+    {
+      "activeGridPoints": 2512,
+      "boundary": "simply_supported",
+      "boundaryOrdinal": 0,
+      "clamped_penalty": 0.0,
+      "file": "circle_simply_supported.cym",
+      "firstEigenvalue": 48.847232818603516,
+      "geometry": "circle",
+      "geometryOrdinal": 1,
+      "lastEigenvalue": 21474.443359375,
+      "max_orthogonality_error": 5.3142169484377e-16,
+      "max_relative_residual": 1.4340725113346727e-10,
+      "modes": [
+        {
+          "eigenvalue": 48.847232818603516,
+          "index": 1,
+          "relativeResidual": 1.4340725113346727e-10
+        },
+        {
+          "eigenvalue": 314.38958740234375,
+          "index": 2,
+          "relativeResidual": 2.8673208548549357e-11
+        },
+        {
+          "eigenvalue": 314.38958740234375,
+          "index": 3,
+          "relativeResidual": 2.5456184013276584e-11
+        },
+        {
+          "eigenvalue": 1008.348388671875,
+          "index": 4,
+          "relativeResidual": 7.593571606935244e-12
+        },
+        {
+          "eigenvalue": 1017.0424194335938,
+          "index": 5,
+          "relativeResidual": 8.378778417568161e-12
+        },
+        {
+          "eigenvalue": 1350.8541259765625,
+          "index": 6,
+          "relativeResidual": 8.456249625904162e-12
+        },
+        {
+          "eigenvalue": 2406.73046875,
+          "index": 7,
+          "relativeResidual": 3.798903735020984e-12
+        },
+        {
+          "eigenvalue": 2406.73046875,
+          "index": 8,
+          "relativeResidual": 4.141611937054722e-12
+        },
+        {
+          "eigenvalue": 3514.269775390625,
+          "index": 9,
+          "relativeResidual": 3.3509957435519293e-12
+        },
+        {
+          "eigenvalue": 3514.269775390625,
+          "index": 10,
+          "relativeResidual": 2.534702836765587e-12
+        },
+        {
+          "eigenvalue": 4799.1474609375,
+          "index": 11,
+          "relativeResidual": 1.952980198460766e-12
+        },
+        {
+          "eigenvalue": 4807.42041015625,
+          "index": 12,
+          "relativeResidual": 2.427595860551403e-12
+        },
+        {
+          "eigenvalue": 7217.90673828125,
+          "index": 13,
+          "relativeResidual": 1.2369975890096142e-12
+        },
+        {
+          "eigenvalue": 7296.48779296875,
+          "index": 14,
+          "relativeResidual": 1.3198389786189786e-12
+        },
+        {
+          "eigenvalue": 8103.384765625,
+          "index": 15,
+          "relativeResidual": 1.6286805462904789e-12
+        },
+        {
+          "eigenvalue": 8548.833984375,
+          "index": 16,
+          "relativeResidual": 1.577474782713164e-12
+        },
+        {
+          "eigenvalue": 8548.833984375,
+          "index": 17,
+          "relativeResidual": 1.2107339789228967e-12
+        },
+        {
+          "eigenvalue": 13070.6923828125,
+          "index": 18,
+          "relativeResidual": 1.4993355771054053e-12
+        },
+        {
+          "eigenvalue": 13070.6923828125,
+          "index": 19,
+          "relativeResidual": 1.928960939318016e-12
+        },
+        {
+          "eigenvalue": 13935.193359375,
+          "index": 20,
+          "relativeResidual": 6.620616489583102e-13
+        },
+        {
+          "eigenvalue": 14121.6728515625,
+          "index": 21,
+          "relativeResidual": 7.820798129760435e-13
+        },
+        {
+          "eigenvalue": 15412.0517578125,
+          "index": 22,
+          "relativeResidual": 9.635083041141844e-13
+        },
+        {
+          "eigenvalue": 15412.0517578125,
+          "index": 23,
+          "relativeResidual": 7.443519952076039e-13
+        },
+        {
+          "eigenvalue": 21474.443359375,
+          "index": 24,
+          "relativeResidual": 6.659574793356239e-13
+        }
+      ],
+      "relative_residuals": [
+        1.4340725113346727e-10,
+        2.8673208548549357e-11,
+        2.5456184013276584e-11,
+        7.593571606935244e-12,
+        8.378778417568161e-12,
+        8.456249625904162e-12,
+        3.798903735020984e-12,
+        4.141611937054722e-12,
+        3.3509957435519293e-12,
+        2.534702836765587e-12,
+        1.952980198460766e-12,
+        2.427595860551403e-12,
+        1.2369975890096142e-12,
+        1.3198389786189786e-12,
+        1.6286805462904789e-12,
+        1.577474782713164e-12,
+        1.2107339789228967e-12,
+        1.4993355771054053e-12,
+        1.928960939318016e-12,
+        6.620616489583102e-13,
+        7.820798129760435e-13,
+        9.635083041141844e-13,
+        7.443519952076039e-13,
+        6.659574793356239e-13
+      ],
+      "sha256": "2d3e7db56dcccb20921cc8e85db126d6026e1143e3f70c37bd3637ad9e334c83"
+    },
+    {
+      "activeGridPoints": 2512,
+      "boundary": "clamped",
+      "boundaryOrdinal": 1,
+      "clamped_penalty": 17722081.125000004,
+      "file": "circle_clamped.cym",
+      "firstEigenvalue": 161.6392364501953,
+      "geometry": "circle",
+      "geometryOrdinal": 1,
+      "lastEigenvalue": 29716.64453125,
+      "max_orthogonality_error": 1.4502288259166107e-15,
+      "max_relative_residual": 4.1783124496667406e-11,
+      "modes": [
+        {
+          "eigenvalue": 161.6392364501953,
+          "index": 1,
+          "relativeResidual": 4.1783124496667406e-11
+        },
+        {
+          "eigenvalue": 698.7357177734375,
+          "index": 2,
+          "relativeResidual": 1.197982319668355e-11
+        },
+        {
+          "eigenvalue": 698.7357177734375,
+          "index": 3,
+          "relativeResidual": 1.2207625434954444e-11
+        },
+        {
+          "eigenvalue": 1875.0142822265625,
+          "index": 4,
+          "relativeResidual": 4.472833801144962e-12
+        },
+        {
+          "eigenvalue": 1876.9698486328125,
+          "index": 5,
+          "relativeResidual": 4.410194775394234e-12
+        },
+        {
+          "eigenvalue": 2437.830078125,
+          "index": 6,
+          "relativeResidual": 4.7971556269104205e-12
+        },
+        {
+          "eigenvalue": 4004.998046875,
+          "index": 7,
+          "relativeResidual": 2.3379379392041096e-12
+        },
+        {
+          "eigenvalue": 4004.998046875,
+          "index": 8,
+          "relativeResidual": 2.258637477160593e-12
+        },
+        {
+          "eigenvalue": 5682.86669921875,
+          "index": 9,
+          "relativeResidual": 1.8283102029724517e-12
+        },
+        {
+          "eigenvalue": 5682.86669921875,
+          "index": 10,
+          "relativeResidual": 1.6043485067675851e-12
+        },
+        {
+          "eigenvalue": 7440.09814453125,
+          "index": 11,
+          "relativeResidual": 1.5730967612274868e-12
+        },
+        {
+          "eigenvalue": 7441.1904296875,
+          "index": 12,
+          "relativeResidual": 2.668407103093122e-12
+        },
+        {
+          "eigenvalue": 10939.1181640625,
+          "index": 13,
+          "relativeResidual": 1.0753786998135926e-12
+        },
+        {
+          "eigenvalue": 10949.50390625,
+          "index": 14,
+          "relativeResidual": 9.21506436973835e-13
+        },
+        {
+          "eigenvalue": 12138.0556640625,
+          "index": 15,
+          "relativeResidual": 1.1556298998207901e-12
+        },
+        {
+          "eigenvalue": 12577.6552734375,
+          "index": 16,
+          "relativeResidual": 9.948131167179705e-13
+        },
+        {
+          "eigenvalue": 12577.6552734375,
+          "index": 17,
+          "relativeResidual": 1.0986288515506152e-12
+        },
+        {
+          "eigenvalue": 18771.771484375,
+          "index": 18,
+          "relativeResidual": 7.026980621929354e-13
+        },
+        {
+          "eigenvalue": 18771.771484375,
+          "index": 19,
+          "relativeResidual": 8.038003978173901e-13
+        },
+        {
+          "eigenvalue": 19738.607421875,
+          "index": 20,
+          "relativeResidual": 6.506986983171572e-13
+        },
+        {
+          "eigenvalue": 19959.142578125,
+          "index": 21,
+          "relativeResidual": 5.681954657964775e-13
+        },
+        {
+          "eigenvalue": 21932.021484375,
+          "index": 22,
+          "relativeResidual": 7.384046350967784e-13
+        },
+        {
+          "eigenvalue": 21932.021484375,
+          "index": 23,
+          "relativeResidual": 5.651163440625629e-13
+        },
+        {
+          "eigenvalue": 29716.64453125,
+          "index": 24,
+          "relativeResidual": 3.8009056246298137e-13
+        }
+      ],
+      "relative_residuals": [
+        4.1783124496667406e-11,
+        1.197982319668355e-11,
+        1.2207625434954444e-11,
+        4.472833801144962e-12,
+        4.410194775394234e-12,
+        4.7971556269104205e-12,
+        2.3379379392041096e-12,
+        2.258637477160593e-12,
+        1.8283102029724517e-12,
+        1.6043485067675851e-12,
+        1.5730967612274868e-12,
+        2.668407103093122e-12,
+        1.0753786998135926e-12,
+        9.21506436973835e-13,
+        1.1556298998207901e-12,
+        9.948131167179705e-13,
+        1.0986288515506152e-12,
+        7.026980621929354e-13,
+        8.038003978173901e-13,
+        6.506986983171572e-13,
+        5.681954657964775e-13,
+        7.384046350967784e-13,
+        5.651163440625629e-13,
+        3.8009056246298137e-13
+      ],
+      "sha256": "67da61d4296dd374cf8b82c7323c8da5f217bc4d12a19e51aaebaf281fe0577b"
+    },
+    {
+      "activeGridPoints": 1182,
+      "boundary": "simply_supported",
+      "boundaryOrdinal": 0,
+      "clamped_penalty": 0.0,
+      "file": "triangle_simply_supported.cym",
+      "firstEigenvalue": 329.6440734863281,
+      "geometry": "triangle",
+      "geometryOrdinal": 2,
+      "lastEigenvalue": 84894.4375,
+      "max_orthogonality_error": 6.661338147750939e-16,
+      "max_relative_residual": 1.972089029892639e-11,
+      "modes": [
+        {
+          "eigenvalue": 329.6440734863281,
+          "index": 1,
+          "relativeResidual": 1.972089029892639e-11
+        },
+        {
+          "eigenvalue": 1784.3577880859375,
+          "index": 2,
+          "relativeResidual": 4.965826320122013e-12
+        },
+        {
+          "eigenvalue": 1797.6693115234375,
+          "index": 3,
+          "relativeResidual": 4.600100510867326e-12
+        },
+        {
+          "eigenvalue": 5256.2783203125,
+          "index": 4,
+          "relativeResidual": 1.889103592135193e-12
+        },
+        {
+          "eigenvalue": 6138.46826171875,
+          "index": 5,
+          "relativeResidual": 1.3453185558294973e-12
+        },
+        {
+          "eigenvalue": 6162.70166015625,
+          "index": 6,
+          "relativeResidual": 1.5526662517867391e-12
+        },
+        {
+          "eigenvalue": 13100.2568359375,
+          "index": 7,
+          "relativeResidual": 6.018818375046076e-13
+        },
+        {
+          "eigenvalue": 13114.0625,
+          "index": 8,
+          "relativeResidual": 7.793472296125869e-13
+        },
+        {
+          "eigenvalue": 15922.498046875,
+          "index": 9,
+          "relativeResidual": 5.680357736662291e-13
+        },
+        {
+          "eigenvalue": 15958.705078125,
+          "index": 10,
+          "relativeResidual": 6.739988810862974e-13
+        },
+        {
+          "eigenvalue": 26247.560546875,
+          "index": 11,
+          "relativeResidual": 5.369375283177255e-13
+        },
+        {
+          "eigenvalue": 28034.171875,
+          "index": 12,
+          "relativeResidual": 3.2093173349623906e-13
+        },
+        {
+          "eigenvalue": 28329.341796875,
+          "index": 13,
+          "relativeResidual": 3.740786544382461e-13
+        },
+        {
+          "eigenvalue": 34367.2421875,
+          "index": 14,
+          "relativeResidual": 2.4911896197229836e-13
+        },
+        {
+          "eigenvalue": 34474.90234375,
+          "index": 15,
+          "relativeResidual": 3.264480892206306e-13
+        },
+        {
+          "eigenvalue": 48963.71875,
+          "index": 16,
+          "relativeResidual": 1.8071595571822712e-13
+        },
+        {
+          "eigenvalue": 49031.734375,
+          "index": 17,
+          "relativeResidual": 4.034781867666156e-13
+        },
+        {
+          "eigenvalue": 54159.8046875,
+          "index": 18,
+          "relativeResidual": 2.402287485762518e-13
+        },
+        {
+          "eigenvalue": 54509.890625,
+          "index": 19,
+          "relativeResidual": 1.8952114078474944e-13
+        },
+        {
+          "eigenvalue": 65731.0390625,
+          "index": 20,
+          "relativeResidual": 1.7735552661700883e-13
+        },
+        {
+          "eigenvalue": 65787.8515625,
+          "index": 21,
+          "relativeResidual": 1.5168512095573834e-13
+        },
+        {
+          "eigenvalue": 81156.828125,
+          "index": 22,
+          "relativeResidual": 5.160650068842797e-13
+        },
+        {
+          "eigenvalue": 84545.859375,
+          "index": 23,
+          "relativeResidual": 1.1513981142255605e-13
+        },
+        {
+          "eigenvalue": 84894.4375,
+          "index": 24,
+          "relativeResidual": 1.5216175065124843e-13
+        }
+      ],
+      "relative_residuals": [
+        1.972089029892639e-11,
+        4.965826320122013e-12,
+        4.600100510867326e-12,
+        1.889103592135193e-12,
+        1.3453185558294973e-12,
+        1.5526662517867391e-12,
+        6.018818375046076e-13,
+        7.793472296125869e-13,
+        5.680357736662291e-13,
+        6.739988810862974e-13,
+        5.369375283177255e-13,
+        3.2093173349623906e-13,
+        3.740786544382461e-13,
+        2.4911896197229836e-13,
+        3.264480892206306e-13,
+        1.8071595571822712e-13,
+        4.034781867666156e-13,
+        2.402287485762518e-13,
+        1.8952114078474944e-13,
+        1.7735552661700883e-13,
+        1.5168512095573834e-13,
+        5.160650068842797e-13,
+        1.1513981142255605e-13,
+        1.5216175065124843e-13
+      ],
+      "sha256": "ffb13219afb54535a9e29177f2a17e9089a493c5dfda6ebc158e650a12cc6d24"
+    },
+    {
+      "activeGridPoints": 1182,
+      "boundary": "clamped",
+      "boundaryOrdinal": 1,
+      "clamped_penalty": 17722081.125000004,
+      "file": "triangle_clamped.cym",
+      "firstEigenvalue": 1296.22998046875,
+      "geometry": "triangle",
+      "geometryOrdinal": 2,
+      "lastEigenvalue": 133380.796875,
+      "max_orthogonality_error": 5.065392549852277e-16,
+      "max_relative_residual": 5.518327863552878e-12,
+      "modes": [
+        {
+          "eigenvalue": 1296.22998046875,
+          "index": 1,
+          "relativeResidual": 5.518327863552878e-12
+        },
+        {
+          "eigenvalue": 4678.291015625,
+          "index": 2,
+          "relativeResidual": 1.6770971309791494e-12
+        },
+        {
+          "eigenvalue": 4727.0810546875,
+          "index": 3,
+          "relativeResidual": 1.8163340842419948e-12
+        },
+        {
+          "eigenvalue": 11427.677734375,
+          "index": 4,
+          "relativeResidual": 8.274933054931984e-13
+        },
+        {
+          "eigenvalue": 13003.916015625,
+          "index": 5,
+          "relativeResidual": 6.021207581751395e-13
+        },
+        {
+          "eigenvalue": 13009.02734375,
+          "index": 6,
+          "relativeResidual": 7.008024422620619e-13
+        },
+        {
+          "eigenvalue": 24925.46484375,
+          "index": 7,
+          "relativeResidual": 4.566063879803127e-13
+        },
+        {
+          "eigenvalue": 25108.908203125,
+          "index": 8,
+          "relativeResidual": 3.3396357257013733e-13
+        },
+        {
+          "eigenvalue": 29511.759765625,
+          "index": 9,
+          "relativeResidual": 2.934504154584046e-13
+        },
+        {
+          "eigenvalue": 29632.248046875,
+          "index": 10,
+          "relativeResidual": 3.3964228847703254e-13
+        },
+        {
+          "eigenvalue": 46004.15234375,
+          "index": 11,
+          "relativeResidual": 3.4010049599634983e-13
+        },
+        {
+          "eigenvalue": 48645.2734375,
+          "index": 12,
+          "relativeResidual": 1.9342858653203756e-13
+        },
+        {
+          "eigenvalue": 49233.23828125,
+          "index": 13,
+          "relativeResidual": 2.55407629518566e-13
+        },
+        {
+          "eigenvalue": 58270.2578125,
+          "index": 14,
+          "relativeResidual": 1.7260602235945002e-13
+        },
+        {
+          "eigenvalue": 58418.18359375,
+          "index": 15,
+          "relativeResidual": 2.0195690358303986e-13
+        },
+        {
+          "eigenvalue": 80458.671875,
+          "index": 16,
+          "relativeResidual": 1.7121265032102014e-13
+        },
+        {
+          "eigenvalue": 80694.8828125,
+          "index": 17,
+          "relativeResidual": 1.191524371333543e-13
+        },
+        {
+          "eigenvalue": 88119.3671875,
+          "index": 18,
+          "relativeResidual": 1.3936929447005076e-13
+        },
+        {
+          "eigenvalue": 88124.6328125,
+          "index": 19,
+          "relativeResidual": 1.0624243993210071e-13
+        },
+        {
+          "eigenvalue": 104430.5703125,
+          "index": 20,
+          "relativeResidual": 9.517923644041759e-14
+        },
+        {
+          "eigenvalue": 104956.1875,
+          "index": 21,
+          "relativeResidual": 1.1905295974649575e-13
+        },
+        {
+          "eigenvalue": 128087.8359375,
+          "index": 22,
+          "relativeResidual": 2.525790778165281e-13
+        },
+        {
+          "eigenvalue": 131996.59375,
+          "index": 23,
+          "relativeResidual": 8.32400559057435e-14
+        },
+        {
+          "eigenvalue": 133380.796875,
+          "index": 24,
+          "relativeResidual": 9.353189119735062e-14
+        }
+      ],
+      "relative_residuals": [
+        5.518327863552878e-12,
+        1.6770971309791494e-12,
+        1.8163340842419948e-12,
+        8.274933054931984e-13,
+        6.021207581751395e-13,
+        7.008024422620619e-13,
+        4.566063879803127e-13,
+        3.3396357257013733e-13,
+        2.934504154584046e-13,
+        3.3964228847703254e-13,
+        3.4010049599634983e-13,
+        1.9342858653203756e-13,
+        2.55407629518566e-13,
+        1.7260602235945002e-13,
+        2.0195690358303986e-13,
+        1.7121265032102014e-13,
+        1.191524371333543e-13,
+        1.3936929447005076e-13,
+        1.0624243993210071e-13,
+        9.517923644041759e-14,
+        1.1905295974649575e-13,
+        2.525790778165281e-13,
+        8.32400559057435e-14,
+        9.353189119735062e-14
+      ],
+      "sha256": "4e23957a8ffb8dd43a4d73a125505de97ef0dfbb7973999855c8254790da46e5"
+    },
+    {
+      "activeGridPoints": 2176,
+      "boundary": "simply_supported",
+      "boundaryOrdinal": 0,
+      "clamped_penalty": 0.0,
+      "file": "hexagon_simply_supported.cym",
+      "firstEigenvalue": 67.67135620117188,
+      "geometry": "hexagon",
+      "geometryOrdinal": 3,
+      "lastEigenvalue": 27285.8359375,
+      "max_orthogonality_error": 6.800116025829084e-16,
+      "max_relative_residual": 1.0581562461444797e-10,
+      "modes": [
+        {
+          "eigenvalue": 67.67135620117188,
+          "index": 1,
+          "relativeResidual": 1.0581562461444797e-10
+        },
+        {
+          "eigenvalue": 431.8382873535156,
+          "index": 2,
+          "relativeResidual": 1.9804758183287277e-11
+        },
+        {
+          "eigenvalue": 435.6770324707031,
+          "index": 3,
+          "relativeResidual": 1.8588368102205663e-11
+        },
+        {
+          "eigenvalue": 1381.8037109375,
+          "index": 4,
+          "relativeResidual": 7.383532939202825e-12
+        },
+        {
+          "eigenvalue": 1390.165771484375,
+          "index": 5,
+          "relativeResidual": 5.937617598138449e-12
+        },
+        {
+          "eigenvalue": 1848.7989501953125,
+          "index": 6,
+          "relativeResidual": 6.05558827829256e-12
+        },
+        {
+          "eigenvalue": 2972.41796875,
+          "index": 7,
+          "relativeResidual": 2.775151269532074e-12
+        },
+        {
+          "eigenvalue": 3642.832275390625,
+          "index": 8,
+          "relativeResidual": 2.9006017310234866e-12
+        },
+        {
+          "eigenvalue": 4714.330078125,
+          "index": 9,
+          "relativeResidual": 3.4028904018974583e-12
+        },
+        {
+          "eigenvalue": 4750.4462890625,
+          "index": 10,
+          "relativeResidual": 2.0377775694810126e-12
+        },
+        {
+          "eigenvalue": 6430.61474609375,
+          "index": 11,
+          "relativeResidual": 1.6578946226557168e-12
+        },
+        {
+          "eigenvalue": 6433.77392578125,
+          "index": 12,
+          "relativeResidual": 1.3892347577888018e-12
+        },
+        {
+          "eigenvalue": 9942.6572265625,
+          "index": 13,
+          "relativeResidual": 1.2124352409749653e-12
+        },
+        {
+          "eigenvalue": 10062.9619140625,
+          "index": 14,
+          "relativeResidual": 9.70820630941822e-13
+        },
+        {
+          "eigenvalue": 10566.8310546875,
+          "index": 15,
+          "relativeResidual": 1.9559795458396047e-12
+        },
+        {
+          "eigenvalue": 11560.369140625,
+          "index": 16,
+          "relativeResidual": 9.30174500433094e-13
+        },
+        {
+          "eigenvalue": 11632.7080078125,
+          "index": 17,
+          "relativeResidual": 1.258632382534632e-12
+        },
+        {
+          "eigenvalue": 15788.1455078125,
+          "index": 18,
+          "relativeResidual": 5.81240826525025e-13
+        },
+        {
+          "eigenvalue": 18945.607421875,
+          "index": 19,
+          "relativeResidual": 9.631595572774892e-13
+        },
+        {
+          "eigenvalue": 19574.140625,
+          "index": 20,
+          "relativeResidual": 9.010738378002989e-13
+        },
+        {
+          "eigenvalue": 19631.4140625,
+          "index": 21,
+          "relativeResidual": 4.761553782221685e-13
+        },
+        {
+          "eigenvalue": 20245.935546875,
+          "index": 22,
+          "relativeResidual": 1.17868791100807e-12
+        },
+        {
+          "eigenvalue": 20348.708984375,
+          "index": 23,
+          "relativeResidual": 4.921705692794665e-13
+        },
+        {
+          "eigenvalue": 27285.8359375,
+          "index": 24,
+          "relativeResidual": 5.116560067277655e-13
+        }
+      ],
+      "relative_residuals": [
+        1.0581562461444797e-10,
+        1.9804758183287277e-11,
+        1.8588368102205663e-11,
+        7.383532939202825e-12,
+        5.937617598138449e-12,
+        6.05558827829256e-12,
+        2.775151269532074e-12,
+        2.9006017310234866e-12,
+        3.4028904018974583e-12,
+        2.0377775694810126e-12,
+        1.6578946226557168e-12,
+        1.3892347577888018e-12,
+        1.2124352409749653e-12,
+        9.70820630941822e-13,
+        1.9559795458396047e-12,
+        9.30174500433094e-13,
+        1.258632382534632e-12,
+        5.81240826525025e-13,
+        9.631595572774892e-13,
+        9.010738378002989e-13,
+        4.761553782221685e-13,
+        1.17868791100807e-12,
+        4.921705692794665e-13,
+        5.116560067277655e-13
+      ],
+      "sha256": "073e77b85339d6a51aa4db1bf3d21f6ebbbaa24669d794c38ee83f0bff4fce29"
+    },
+    {
+      "activeGridPoints": 2176,
+      "boundary": "clamped",
+      "boundaryOrdinal": 1,
+      "clamped_penalty": 17722081.125000004,
+      "file": "hexagon_clamped.cym",
+      "firstEigenvalue": 230.87826538085938,
+      "geometry": "hexagon",
+      "geometryOrdinal": 3,
+      "lastEigenvalue": 38464.81640625,
+      "max_orthogonality_error": 5.551115123125783e-16,
+      "max_relative_residual": 3.2594169086933816e-11,
+      "modes": [
+        {
+          "eigenvalue": 230.87826538085938,
+          "index": 1,
+          "relativeResidual": 3.2594169086933816e-11
+        },
+        {
+          "eigenvalue": 988.2842407226562,
+          "index": 2,
+          "relativeResidual": 8.410562558997032e-12
+        },
+        {
+          "eigenvalue": 991.9617919921875,
+          "index": 3,
+          "relativeResidual": 8.858823045904756e-12
+        },
+        {
+          "eigenvalue": 2624.604248046875,
+          "index": 4,
+          "relativeResidual": 3.23312484565406e-12
+        },
+        {
+          "eigenvalue": 2634.002685546875,
+          "index": 5,
+          "relativeResidual": 3.2811472949094704e-12
+        },
+        {
+          "eigenvalue": 3418.5224609375,
+          "index": 6,
+          "relativeResidual": 3.4354130541312138e-12
+        },
+        {
+          "eigenvalue": 5097.46630859375,
+          "index": 7,
+          "relativeResidual": 1.6689059328656294e-12
+        },
+        {
+          "eigenvalue": 6133.5712890625,
+          "index": 8,
+          "relativeResidual": 1.7711648857778078e-12
+        },
+        {
+          "eigenvalue": 7816.01904296875,
+          "index": 9,
+          "relativeResidual": 1.4613370741818344e-12
+        },
+        {
+          "eigenvalue": 7838.5556640625,
+          "index": 10,
+          "relativeResidual": 1.1834551052188288e-12
+        },
+        {
+          "eigenvalue": 10151.4921875,
+          "index": 11,
+          "relativeResidual": 1.0073740042669085e-12
+        },
+        {
+          "eigenvalue": 10189.2958984375,
+          "index": 12,
+          "relativeResidual": 9.402263263826954e-13
+        },
+        {
+          "eigenvalue": 15314.3876953125,
+          "index": 13,
+          "relativeResidual": 7.087110844574376e-13
+        },
+        {
+          "eigenvalue": 15414.4296875,
+          "index": 14,
+          "relativeResidual": 5.677204227146441e-13
+        },
+        {
+          "eigenvalue": 16163.45703125,
+          "index": 15,
+          "relativeResidual": 1.2362009911118515e-12
+        },
+        {
+          "eigenvalue": 17300.458984375,
+          "index": 16,
+          "relativeResidual": 5.645019184643209e-13
+        },
+        {
+          "eigenvalue": 17422.640625,
+          "index": 17,
+          "relativeResidual": 6.662920500515344e-13
+        },
+        {
+          "eigenvalue": 23258.330078125,
+          "index": 18,
+          "relativeResidual": 3.96119524864764e-13
+        },
+        {
+          "eigenvalue": 27236.029296875,
+          "index": 19,
+          "relativeResidual": 5.569103311121797e-13
+        },
+        {
+          "eigenvalue": 28193.970703125,
+          "index": 20,
+          "relativeResidual": 3.4492166000313433e-13
+        },
+        {
+          "eigenvalue": 28465.697265625,
+          "index": 21,
+          "relativeResidual": 4.326618842350349e-13
+        },
+        {
+          "eigenvalue": 29374.068359375,
+          "index": 22,
+          "relativeResidual": 6.517953634038697e-13
+        },
+        {
+          "eigenvalue": 29410.65234375,
+          "index": 23,
+          "relativeResidual": 3.7768364735778055e-13
+        },
+        {
+          "eigenvalue": 38464.81640625,
+          "index": 24,
+          "relativeResidual": 3.9282845386119137e-13
+        }
+      ],
+      "relative_residuals": [
+        3.2594169086933816e-11,
+        8.410562558997032e-12,
+        8.858823045904756e-12,
+        3.23312484565406e-12,
+        3.2811472949094704e-12,
+        3.4354130541312138e-12,
+        1.6689059328656294e-12,
+        1.7711648857778078e-12,
+        1.4613370741818344e-12,
+        1.1834551052188288e-12,
+        1.0073740042669085e-12,
+        9.402263263826954e-13,
+        7.087110844574376e-13,
+        5.677204227146441e-13,
+        1.2362009911118515e-12,
+        5.645019184643209e-13,
+        6.662920500515344e-13,
+        3.96119524864764e-13,
+        5.569103311121797e-13,
+        3.4492166000313433e-13,
+        4.326618842350349e-13,
+        6.517953634038697e-13,
+        3.7768364735778055e-13,
+        3.9282845386119137e-13
+      ],
+      "sha256": "e3b73dd980f289cca14f8439844f4bb06cf6b8ccb6480910aab8776ec34dc5b4"
+    }
+  ],
+  "clamped": "K plus first-interior-ring zero-slope penalty; finite-grid approximation",
+  "coordinateDomain": "[-1,1] x [-1,1]",
+  "formatVersion": 1,
+  "generatorVersion": "0.8.0",
+  "gridSize": 64,
+  "method": "finite-difference biharmonic eigenproblem",
+  "modeCount": 24,
+  "modelId": "cymatics-kirchhoff-love-modal-0.8",
+  "normalization": "each field uses max(abs(phi)) = 1; sign fixed at its largest-magnitude cell",
+  "ordering": "ascending positive eigenvalue",
+  "simplySupported": "K=L_D^T L_D with zero displacement outside the domain"
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background with squircle safe padding for Android HyperOS -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="112" fill="none" stroke="#1e293b" stroke-width="4" />
+
+  <!-- Acoustic Chladni Harmonic Rings -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="8 8" opacity="0.4" />
+  <circle cx="256" cy="256" r="145" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.35" />
+  <circle cx="256" cy="256" r="95" fill="none" stroke="#818cf8" stroke-width="4" opacity="0.5" />
+
+  <!-- Chladni Nodal Cross Curves -->
+  <path d="M 120 256 C 180 180, 332 180, 392 256 C 332 332, 180 332, 120 256 Z" 
+        fill="none" stroke="url(#waveGrad)" stroke-width="8" stroke-linecap="round" filter="url(#glow)" />
+  <path d="M 256 120 C 180 180, 180 332, 256 392 C 332 332, 332 180, 256 120 Z" 
+        fill="none" stroke="url(#waveGrad)" stroke-width="8" stroke-linecap="round" filter="url(#glow)" />
+
+  <!-- Center Acoustic Core Core -->
+  <circle cx="256" cy="256" r="32" fill="#020617" stroke="#38bdf8" stroke-width="6" />
+  <circle cx="256" cy="256" r="14" fill="#38bdf8" filter="url(#glow)" />
+</svg>
