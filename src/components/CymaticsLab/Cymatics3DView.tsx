@@ -10,6 +10,47 @@ import { CymaticsPhysics } from '../../physics/CymaticsPhysics';
 import { PALETTES } from '../../utils/palette';
 import { Eye, RotateCcw, Sparkles, Video, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 
+const particleVertexShader = `
+uniform float uSize;
+uniform float uPixelRatio;
+varying float vDepthFade;
+void main() {
+  vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+  gl_Position = projectionMatrix * mvPosition;
+  float perspective = clamp(260.0 / max(-mvPosition.z, 1.0), 0.65, 2.5);
+  gl_PointSize = uSize * uPixelRatio * perspective;
+  vDepthFade = 1.0 - smoothstep(4.0, 24.0, -mvPosition.z);
+}`;
+
+const particleFragmentShader = `
+uniform vec3 uColor;
+uniform float uOpacity;
+varying float vDepthFade;
+void main() {
+  vec2 point = gl_PointCoord * 2.0 - 1.0;
+  float radius = dot(point, point);
+  if (radius > 1.0) discard;
+  float core = 1.0 - smoothstep(0.06, 0.48, radius);
+  float halo = 1.0 - smoothstep(0.24, 1.0, radius);
+  vec3 color = uColor * (0.72 + core * 0.72);
+  gl_FragColor = vec4(color, (core * 0.76 + halo * 0.24) * uOpacity * vDepthFade);
+}`;
+
+const createParticleMaterial = (color: number, size: number, opacity: number, additive: boolean) =>
+  new THREE.ShaderMaterial({
+    uniforms: {
+      uColor: { value: new THREE.Color(color) },
+      uSize: { value: size },
+      uOpacity: { value: opacity },
+      uPixelRatio: { value: Math.min(window.devicePixelRatio, 1.75) },
+    },
+    vertexShader: particleVertexShader,
+    fragmentShader: particleFragmentShader,
+    transparent: true,
+    depthWrite: false,
+    blending: additive ? THREE.AdditiveBlending : THREE.NormalBlending,
+  });
+
 interface Cymatics3DViewProps {
   state: CymaticsState;
   bank: CymaticsModeBank | null;
@@ -56,6 +97,8 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
   const clockRef = useRef<THREE.Clock>(new THREE.Clock());
   const frameCount = useRef<number>(0);
   const lastFpsUpdate = useRef<number>(performance.now());
+  const simulationFrameRef = useRef<number>(0);
+  const simulationTimeRef = useRef<number>(0);
 
   // Reusable raycasting objects (zero GC allocations on mouse move)
   const raycasterRef = useRef<THREE.Raycaster>(new THREE.Raycaster());
@@ -119,7 +162,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
   // Reset camera view
   const handleResetCamera = (mode: 'orbit' | 'top_down') => {
     if (mode === 'top_down') {
-      mouseState.current.rotation.x = Math.PI / 2;
+      mouseState.current.rotation.x = 0.001;
       mouseState.current.rotation.y = 0;
       mouseState.current.targetDistance = 11.0;
       onUpdateState({ cameraMode: 'top_down' });
@@ -152,7 +195,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     rendererRef.current = renderer;
@@ -222,13 +265,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
     const sandPositions = new Float32Array(sandCount * 3);
     sandGeom.setAttribute('position', new THREE.BufferAttribute(sandPositions, 3));
 
-    const sandMat = new THREE.PointsMaterial({
-      color: palette.sandParticleHex,
-      size: 0.085,
-      transparent: true,
-      opacity: 0.9,
-      blending: THREE.NormalBlending,
-    });
+    const sandMat = createParticleMaterial(palette.sandParticleHex, 2.6, 0.92, false);
 
     const sandPoints = new THREE.Points(sandGeom, sandMat);
     scene.add(sandPoints);
@@ -240,13 +277,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
     const streamPositions = new Float32Array(streamCount * 3);
     streamGeom.setAttribute('position', new THREE.BufferAttribute(streamPositions, 3));
 
-    const streamMat = new THREE.PointsMaterial({
-      color: palette.streamParticleHex,
-      size: 0.11,
-      transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
-    });
+    const streamMat = createParticleMaterial(palette.streamParticleHex, 3.4, 0.82, true);
 
     const streamPoints = new THREE.Points(streamGeom, streamMat);
     scene.add(streamPoints);
@@ -299,12 +330,12 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
       mat.wireframe = state.showWireframe;
     }
     if (sandParticlesRef.current) {
-      const mat = sandParticlesRef.current.material as THREE.PointsMaterial;
-      mat.color.setHex(palette.sandParticleHex);
+      const mat = sandParticlesRef.current.material as THREE.ShaderMaterial;
+      mat.uniforms.uColor.value.setHex(palette.sandParticleHex);
     }
     if (nodalStreamsRef.current) {
-      const mat = nodalStreamsRef.current.material as THREE.PointsMaterial;
-      mat.color.setHex(palette.streamParticleHex);
+      const mat = nodalStreamsRef.current.material as THREE.ShaderMaterial;
+      mat.uniforms.uColor.value.setHex(palette.streamParticleHex);
       nodalStreamsRef.current.visible = state.showNodalStreams;
     }
     if (sceneRef.current) {
@@ -319,8 +350,11 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
     const animate = () => {
       animFrameId.current = requestAnimationFrame(animate);
 
-      const delta = clock.getDelta();
-      const elapsed = clock.getElapsedTime();
+      const delta = Math.min(clock.getDelta(), 0.05);
+      if (document.hidden) return;
+      if (!state.paused) simulationTimeRef.current += delta;
+      const elapsed = simulationTimeRef.current;
+      const simulationFrame = simulationFrameRef.current++;
 
       // FPS calculation
       frameCount.current++;
@@ -336,14 +370,14 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
       const ms = mouseState.current;
 
       // Handle cinematic show mode rotation
-      if (state.cameraMode === 'cinematic_show') {
+      if (state.cameraMode === 'cinematic_show' && !state.paused && !state.reduceMotion) {
         ms.rotation.y += delta * 0.25;
       }
 
       ms.distance += (ms.targetDistance - ms.distance) * 0.1;
 
       if (camera) {
-        const phi = Math.max(0.05, Math.min(Math.PI / 2 - 0.02, ms.rotation.x));
+        const phi = Math.max(0.001, Math.min(Math.PI / 2 - 0.02, ms.rotation.x));
         const theta = ms.rotation.y;
         camera.position.x = ms.distance * Math.sin(phi) * Math.sin(theta);
         camera.position.y = ms.distance * Math.cos(phi);
@@ -370,8 +404,8 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
 
         // Decoupled perceptual oscillation phase (smooth, aesthetic, anti-aliased)
         const cyclesPerSec = CymaticsPhysics.visualCyclesPerSecond(state.driveFrequencyHz);
-        const visualPhase = state.paused ? 0 : elapsed * cyclesPerSec * 2 * Math.PI;
-        const amp = state.paused ? 0 : metrics.normalizedAmplitude * state.visualScale * 0.8;
+        const visualPhase = elapsed * cyclesPerSec * 2 * Math.PI;
+        const amp = metrics.normalizedAmplitude * state.visualScale * 0.8;
         const sinPhaseAmp = Math.sin(visualPhase) * amp;
 
         const count = posAttr.count;
@@ -391,13 +425,13 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
           }
         }
         posAttr.needsUpdate = true;
-        if (!state.paused && amp > 0.005) {
+        if (!state.paused && amp > 0.005 && simulationFrame % 3 === 0) {
           geom.computeVertexNormals();
         }
       }
 
       // Sand Particles Physics & Nodal Settling
-      if (sandParticlesRef.current && sandPositionsRef.current && sandVelocitiesRef.current && bank) {
+      if (!state.paused && sandParticlesRef.current && sandPositionsRef.current && sandVelocitiesRef.current && bank) {
         const positions = sandPositionsRef.current;
         const velocities = sandVelocitiesRef.current;
         const count = state.sandParticleCount;
@@ -409,7 +443,8 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
         const gradOut = { val: 0, gradX: 0, gradY: 0 };
         const accel = -1.2 * activeAmp * flow;
 
-        for (let i = 0; i < count; i++) {
+        const parity = simulationFrame & 1;
+        for (let i = parity; i < count; i += 2) {
           const idx = i * 3;
           const vIdx = i * 2;
 
@@ -423,11 +458,14 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
             // Unified fast bilinear sampling with spatial gradient (zero allocations)
             CymaticsPhysics.sampleModeWithGradient(bank, activeMode, nx, nz, gradOut);
             const phiCenter = Math.abs(gradOut.val);
-            const gradX = gradOut.gradX;
-            const gradZ = gradOut.gradY;
+            // Follow -gradient(phi²), towards nodes on both signs of the modal field.
+            const gradX = 2 * gradOut.val * gradOut.gradX;
+            const gradZ = 2 * gradOut.val * gradOut.gradY;
 
-            velocities[vIdx] += gradX * accel + (Math.random() - 0.5) * 0.003 * activeAmp;
-            velocities[vIdx + 1] += gradZ * accel + (Math.random() - 0.5) * 0.003 * activeAmp;
+            const noise = Math.sin(i * 12.9898 + elapsed * 1.7) * 0.0015 * activeAmp;
+            const step = Math.min(delta * 60, 2);
+            velocities[vIdx] += (gradX * accel * 0.01 + noise) * step;
+            velocities[vIdx + 1] += (gradZ * accel * 0.01 - noise) * step;
 
             // Damping / friction on plate
             velocities[vIdx] *= 0.88;
@@ -505,6 +543,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
 
   // Pointer drag controls for 3D Camera Orbit
   const handlePointerDown = (e: React.PointerEvent) => {
+    if ((e.target as HTMLElement).closest('button, input, select')) return;
     activeTouches.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
     if (activeTouches.current.size === 1) {
@@ -599,7 +638,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
 
   return (
     <div
-      className="relative w-full h-full min-h-[480px] bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 select-none flex flex-col touch-none"
+      className="lab-stage relative w-full h-full min-h-[460px] bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 select-none flex flex-col touch-none"
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
@@ -611,7 +650,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
       <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
       {/* Top Overlay Bar */}
-      <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+      <div className="lab-stage-top absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 flex items-start justify-between gap-2 pointer-events-none">
         {/* Metric Badges */}
         <div className="flex flex-wrap gap-2 pointer-events-auto">
           <div className="px-3 py-1.5 rounded-lg bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-cyan-300 flex items-center gap-2 shadow-lg">
@@ -634,7 +673,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
         </div>
 
         {/* View and Audio Controls */}
-        <div className="flex items-center gap-2 pointer-events-auto">
+        <div className="lab-stage-actions flex items-center justify-end gap-2 pointer-events-auto">
           {/* Audio Synthesizer Button */}
           <button
             id="cymatics-audio-toggle-btn"
@@ -702,7 +741,7 @@ export const Cymatics3DView: React.FC<Cymatics3DViewProps> = ({
       </div>
 
       {/* Bottom Floating Stats and Probe Inspector */}
-      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
+      <div className="lab-stage-bottom absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-end justify-between gap-2 pointer-events-none">
         {/* Sonda Modal Interactiva */}
         <div className="bg-slate-900/85 backdrop-blur-md border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-300 shadow-xl pointer-events-auto flex items-center gap-3">
           <div className="w-2.5 h-2.5 rounded-full bg-cyan-400" />

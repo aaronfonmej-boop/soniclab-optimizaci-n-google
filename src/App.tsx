@@ -21,14 +21,13 @@ import { AudioEngine } from './audio/AudioEngine';
 
 import { Cymatics3DView } from './components/CymaticsLab/Cymatics3DView';
 import { CymaticsControls } from './components/CymaticsLab/CymaticsControls';
-import { Acoustics3DView } from './components/AcousticsLab/Acoustics3DView';
+import { AcousticLab as Acoustics3DView } from './components/AcousticsLab/AcousticLab';
 import { AcousticsControls } from './components/AcousticsLab/AcousticsControls';
 import { ResonatorsView } from './components/ResonatorsLab/ResonatorsView';
 import { BeamformingView } from './components/BeamformingLab/BeamformingView';
 import { LabReportModal } from './components/ReportGenerator/LabReportModal';
 import { CodeOptimizationAudit } from './components/CodeOptimization/CodeOptimizationAudit';
 import { AcademicGuide } from './components/AcademicGuide/AcademicGuide';
-import { PWAInstallButton } from './components/PWAInstallButton';
 
 import {
   Activity,
@@ -214,7 +213,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Top Main Navigation Bar */}
-      <header className="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 px-4 lg:px-8 py-3.5 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 px-3 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3 safe-area-top">
         {/* Branding & Repository Link */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 border border-cyan-400/30">
@@ -224,7 +223,7 @@ export default function App() {
             <div className="flex items-center gap-2">
               <span className="font-bold text-base tracking-tight text-white font-mono">SonicLab 3D</span>
               <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                v1.1 Optimized
+                v1.2 · ORBIT
               </span>
             </div>
             <span className="text-xs text-slate-400 hidden sm:inline">
@@ -234,7 +233,7 @@ export default function App() {
         </div>
 
         {/* Tab Navigation Controls */}
-        <nav className="flex items-center gap-1.5 bg-slate-900/90 p-1 rounded-xl border border-slate-800 overflow-x-auto max-w-full">
+        <nav aria-label="Laboratorios" className="order-3 lg:order-none flex items-center gap-1.5 bg-slate-900/90 p-1 rounded-xl border border-slate-800 overflow-x-auto w-full lg:w-auto max-w-full scrollbar-none">
           <button
             id="nav-tab-cymatics"
             onClick={() => setActiveModule('cymatics')}
@@ -328,8 +327,7 @@ export default function App() {
         </nav>
 
         {/* Global Audio Synthesizer, PWA/APK Install & GitHub Link */}
-        <div className="flex items-center gap-2.5">
-          <PWAInstallButton />
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
 
           <button
             id="header-audio-toggle-btn"
@@ -367,12 +365,12 @@ export default function App() {
       </header>
 
       {/* Main Content Workspace */}
-      <main className="flex-1 w-full max-w-7xl mx-auto p-4 lg:p-6 flex flex-col gap-6">
+      <main className="flex-1 w-full max-w-7xl mx-auto p-2.5 sm:p-4 lg:p-6 flex flex-col gap-6">
         {/* 1. Laboratorio de Cimática */}
         {activeModule === 'cymatics' && (
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 items-start">
             {/* 3D Visualizer Canvas (Left/Top) */}
-            <div className="w-full lg:col-span-7 xl:col-span-8 h-[460px] sm:h-[540px] xl:h-[620px] lg:sticky lg:top-20">
+            <div className="w-full lg:col-span-7 xl:col-span-8 h-[72svh] min-h-[460px] max-h-[620px] lg:sticky lg:top-20">
               <Cymatics3DView
                 state={cymaticsState}
                 bank={cymaticsBank}
@@ -400,7 +398,7 @@ export default function App() {
         {activeModule === 'acoustics' && (
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 items-start">
             {/* Visual Chamber (Left) */}
-            <div className="w-full lg:col-span-7 xl:col-span-8 h-[460px] sm:h-[540px] xl:h-[620px] lg:sticky lg:top-20">
+            <div className="w-full min-w-0 lg:col-span-7 xl:col-span-8">
               <Acoustics3DView
                 state={acousticsState}
                 calcs={acousticCalcs}
@@ -451,7 +449,7 @@ export default function App() {
           <span>SonicLab Physics Core: Kirchhoff-Love Plates & ISO 9613-1 Acoustics</span>
         </div>
         <div>
-          <span>Código optimizado para Android OpenGL ES 3.0 & WebGL 2 (Zero-Allocation Render Loops)</span>
+          <span>SonicLab 1.2 · ORBIT · Simulación educativa</span>
         </div>
       </footer>
     </div>

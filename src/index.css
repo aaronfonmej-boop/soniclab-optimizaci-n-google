@@ -1,1 +1,350 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  background: #020617;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: #020617;
+}
+body {
+  margin: 0;
+  overscroll-behavior-y: none;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+main,
+main > div,
+main > div > div {
+  min-width: 0;
+}
+header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+header > div:first-child {
+  min-width: 0;
+}
+header > div:first-child > div:last-child {
+  min-width: 0;
+}
+header > div:first-child > div:last-child > div {
+  flex-wrap: wrap;
+}
+header nav {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100% !important;
+  min-width: 0;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+}
+header > div:last-child {
+  grid-column: 2;
+  grid-row: 1;
+}
+footer {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  overflow-wrap: anywhere;
+}
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid #38d5ef;
+  outline-offset: 3px;
+}
+.acoustic-lab {
+  background: #07101e;
+  border: 1px solid #213247;
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 0;
+  color: #dce9f5;
+}
+.acoustic-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 16px 12px;
+}
+.acoustic-heading h2 {
+  font-size: 17px;
+  font-weight: 650;
+  margin-top: 3px;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #4ddae4;
+}
+.build-badge {
+  white-space: nowrap;
+  font-size: 10px;
+  color: #53dbe3;
+  border: 1px solid #245062;
+  border-radius: 7px;
+  padding: 5px;
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 12px 12px;
+}
+.metric-grid > div,
+.probe-grid > div {
+  min-width: 0;
+  padding: 10px 8px;
+  background: #0d1b2b;
+  border: 1px solid #1d3245;
+  border-radius: 10px;
+}
+.metric-grid span,
+.probe-grid span {
+  display: block;
+  font-size: 10px;
+  color: #a5b7cc;
+  line-height: 1.5;
+}
+.metric-grid strong,
+.probe-grid strong {
+  display: block;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  line-height: 1.8;
+}
+.metric-grid small {
+  font-size: 10px;
+  font-weight: 400;
+}
+.lab-toolbar,
+.camera-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.lab-toolbar {
+  padding: 0 12px 12px;
+}
+.lab-toolbar button,
+.camera-tools button {
+  min-height: 44px;
+  border: 1px solid #2c455a;
+  background: #0c1c2de8;
+  color: #d9eaf5;
+  border-radius: 10px;
+  padding: 7px 11px;
+  font-size: 12px;
+  touch-action: manipulation;
+}
+.lab-toolbar button[aria-pressed="true"] {
+  border-color: #39c9d7;
+  color: #6aeeed;
+}
+.particle-viewport {
+  position: relative;
+  height: clamp(350px, 53svh, 600px);
+  width: 100%;
+  background: #020711;
+}
+.particle-host {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+.particle-host canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.particle-legend {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: flex;
+  gap: 14px;
+  pointer-events: none;
+  font-size: 10px;
+}
+.particle-legend span:first-child {
+  color: #ff718a;
+}
+.particle-legend span:last-child {
+  color: #62bfff;
+}
+.camera-tools {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  justify-content: center;
+}
+.camera-tools button {
+  backdrop-filter: blur(8px);
+}
+.gesture-help,
+.measurement-note {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 10px;
+  line-height: 1.65;
+  color: #a4bacd;
+}
+.quality-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px 12px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.quality-row select {
+  background: #102338;
+  color: #ddedf9;
+  border: 1px solid #304459;
+  border-radius: 8px;
+  min-height: 40px;
+  max-width: 100%;
+  padding: 5px;
+  margin-left: 6px;
+}
+.probe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 0 12px;
+}
+.probe-grid h3 {
+  font-size: 12px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.probe-grid small {
+  font-size: 9px;
+  color: #9baec4;
+}
+.probe-grid strong {
+  font-size: 12px;
+}
+.probe-grid span {
+  font-size: 9px;
+}
+.selection-card {
+  margin: 12px 12px 0;
+  border: 1px solid #344850;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+  min-height: 84px;
+}
+.selection-card strong {
+  color: #ffe075;
+}
+.render-error {
+  position: absolute;
+  inset: 20%;
+  padding: 20px;
+  background: #091827;
+  color: #fff;
+}
+@media (max-width: 360px) {
+  .metric-grid strong {
+    font-size: 13px;
+  }
+  .acoustic-heading h2 {
+    font-size: 15px;
+  }
+  .probe-grid {
+    gap: 4px;
+    padding: 0 8px;
+  }
+  .probe-grid > div {
+    padding: 8px 5px;
+  }
+  .camera-tools button {
+    padding: 6px 8px;
+  }
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+.safe-area-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.acoustic-particle-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+@media (max-width: 639px) {
+  .lab-stage-top {
+    flex-direction: column;
+  }
+  .lab-stage-top > div:first-child {
+    max-width: calc(100% - 0.25rem);
+  }
+  .lab-stage-top > div:first-child > div:nth-child(n + 2) {
+    display: none;
+  }
+  .lab-stage-actions {
+    align-self: flex-end;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+  .lab-stage-actions button span {
+    display: none;
+  }
+  .lab-stage-actions button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    justify-content: center;
+    padding: 0.6rem;
+  }
+  .lab-stage-bottom {
+    align-items: flex-end;
+  }
+  .lab-stage-bottom > div:first-child {
+    max-width: 70%;
+    overflow: hidden;
+  }
+  .probe-cards > div {
+    min-width: 9.5rem;
+  }
+  .lab-stage-bottom > div:last-child {
+    padding: 0.45rem 0.6rem;
+  }
+  .lab-stage-bottom > div:last-child span:nth-child(n + 3) {
+    display: none;
+  }
+}
